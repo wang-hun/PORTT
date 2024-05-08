@@ -139,7 +139,7 @@ namespace WHProject
             // 
             this.button1.Font = new System.Drawing.Font("宋体", 13.77391F);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(2, 94);
+            this.button1.Location = new System.Drawing.Point(57, 131);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(116, 68);
             this.button1.TabIndex = 16;
@@ -151,7 +151,7 @@ namespace WHProject
             // 
             this.button2.Font = new System.Drawing.Font("宋体", 13.77391F);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(249, 90);
+            this.button2.Location = new System.Drawing.Point(359, 127);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(116, 72);
             this.button2.TabIndex = 17;
@@ -163,7 +163,7 @@ namespace WHProject
             // 
             this.button3.Font = new System.Drawing.Font("宋体", 13.77391F);
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(127, 90);
+            this.button3.Location = new System.Drawing.Point(206, 127);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(116, 72);
             this.button3.TabIndex = 18;
@@ -195,7 +195,7 @@ namespace WHProject
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(371, 481);
+            this.chart1.Location = new System.Drawing.Point(533, 554);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
             series1.ChartArea = "ChartArea1";
@@ -294,7 +294,7 @@ namespace WHProject
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.setTemLabelmin);
-            this.panel2.Location = new System.Drawing.Point(371, 12);
+            this.panel2.Location = new System.Drawing.Point(521, 43);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(495, 463);
             this.panel2.TabIndex = 27;
@@ -356,7 +356,7 @@ namespace WHProject
             this.yusheBox.Location = new System.Drawing.Point(119, 358);
             this.yusheBox.Margin = new System.Windows.Forms.Padding(0, 3, 0, 10);
             this.yusheBox.Name = "yusheBox";
-            this.yusheBox.Size = new System.Drawing.Size(189, 22);
+            this.yusheBox.Size = new System.Drawing.Size(189, 27);
             this.yusheBox.TabIndex = 7;
             // 
             // label10
@@ -483,7 +483,7 @@ namespace WHProject
             // 
             this.textBox1.Font = new System.Drawing.Font("宋体", 13.77391F);
             this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(40, 601);
+            this.textBox1.Location = new System.Drawing.Point(127, 669);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(291, 33);
             this.textBox1.TabIndex = 28;
@@ -495,7 +495,7 @@ namespace WHProject
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("宋体", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(120, 576);
+            this.label5.Location = new System.Drawing.Point(24, 680);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 22);
             this.label5.TabIndex = 29;
@@ -511,7 +511,7 @@ namespace WHProject
             this.solvebut.BackColor = System.Drawing.Color.White;
             this.solvebut.BackgroundImage = global::WHProject.Resource1.R_C;
             this.solvebut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.solvebut.Location = new System.Drawing.Point(769, 525);
+            this.solvebut.Location = new System.Drawing.Point(935, 601);
             this.solvebut.Name = "solvebut";
             this.solvebut.Size = new System.Drawing.Size(62, 50);
             this.solvebut.TabIndex = 37;
@@ -522,7 +522,7 @@ namespace WHProject
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("宋体", 13.77391F);
-            this.label11.Location = new System.Drawing.Point(752, 578);
+            this.label11.Location = new System.Drawing.Point(915, 655);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(98, 22);
             this.label11.TabIndex = 37;
@@ -534,7 +534,7 @@ namespace WHProject
             this.timeBox.Enabled = false;
             this.timeBox.Font = new System.Drawing.Font("黑体", 11.89565F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.timeBox.ForeColor = System.Drawing.Color.Black;
-            this.timeBox.Location = new System.Drawing.Point(40, 680);
+            this.timeBox.Location = new System.Drawing.Point(127, 736);
             this.timeBox.Name = "timeBox";
             this.timeBox.Size = new System.Drawing.Size(291, 29);
             this.timeBox.TabIndex = 38;
@@ -550,7 +550,7 @@ namespace WHProject
             // 
             this.openStreamBt.Font = new System.Drawing.Font("宋体", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.openStreamBt.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.openStreamBt.Location = new System.Drawing.Point(67, 43);
+            this.openStreamBt.Location = new System.Drawing.Point(262, 58);
             this.openStreamBt.Name = "openStreamBt";
             this.openStreamBt.Size = new System.Drawing.Size(213, 45);
             this.openStreamBt.TabIndex = 0;
@@ -563,10 +563,10 @@ namespace WHProject
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(53, 9);
+            this.label1.Location = new System.Drawing.Point(24, 63);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label1.Size = new System.Drawing.Size(53, 35);
+            this.label1.Size = new System.Drawing.Size(69, 40);
             this.label1.TabIndex = 1;
             this.label1.Text = "串  口";
             // 
@@ -574,10 +574,10 @@ namespace WHProject
             // 
             this.portsBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.portsBox.FormattingEnabled = true;
-            this.portsBox.Location = new System.Drawing.Point(148, 12);
+            this.portsBox.Location = new System.Drawing.Point(96, 69);
             this.portsBox.Margin = new System.Windows.Forms.Padding(0, 3, 0, 10);
             this.portsBox.Name = "portsBox";
-            this.portsBox.Size = new System.Drawing.Size(142, 22);
+            this.portsBox.Size = new System.Drawing.Size(142, 27);
             this.portsBox.TabIndex = 6;
             // 
             // panel1
@@ -592,7 +592,7 @@ namespace WHProject
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.MubNum);
             this.panel1.Controls.Add(this.label13);
-            this.panel1.Location = new System.Drawing.Point(2, 161);
+            this.panel1.Location = new System.Drawing.Point(88, 216);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(363, 314);
             this.panel1.TabIndex = 39;
@@ -706,7 +706,7 @@ namespace WHProject
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.trackBar1);
             this.panel3.Controls.Add(this.helpbutton);
-            this.panel3.Location = new System.Drawing.Point(2, 481);
+            this.panel3.Location = new System.Drawing.Point(88, 554);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(363, 78);
             this.panel3.TabIndex = 39;
@@ -721,7 +721,7 @@ namespace WHProject
             this.numericUpDown4.BackColor = System.Drawing.Color.White;
             this.numericUpDown4.Font = new System.Drawing.Font("宋体", 20.94783F);
             this.numericUpDown4.ForeColor = System.Drawing.Color.Black;
-            this.numericUpDown4.Location = new System.Drawing.Point(756, 603);
+            this.numericUpDown4.Location = new System.Drawing.Point(919, 680);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -746,7 +746,7 @@ namespace WHProject
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("宋体", 13.77391F);
-            this.label17.Location = new System.Drawing.Point(766, 652);
+            this.label17.Location = new System.Drawing.Point(931, 743);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(76, 22);
             this.label17.TabIndex = 41;
@@ -754,12 +754,11 @@ namespace WHProject
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::WHProject.Resource1.pic2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(877, 761);
+            this.ClientSize = new System.Drawing.Size(1069, 830);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.numericUpDown4);
             this.Controls.Add(this.panel3);
@@ -777,13 +776,14 @@ namespace WHProject
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "智能控制终端V2.0";
+            this.ZoomScaleRect = new System.Drawing.Rectangle(18, 18, 877, 761);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

@@ -13,10 +13,11 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
+using Sunny.UI;
 
 namespace WHProject
 { 
-    public partial class Form1 : Form
+    public partial class Form1 : UIForm
     {
        public static string sqlConnStr = @"Server=103.42.30.126;Port=3308;Database=IntelligentGreenhouse;Uid=huanqing;Pwd=huanqing;SslMode=none;";
         /// <summary>
@@ -33,7 +34,9 @@ namespace WHProject
         public static string[] strs;
         public Form1()
         {
+           
             InitializeComponent();
+        
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -59,29 +62,8 @@ namespace WHProject
             min = 100;
             timer2.Start();
             timer5.Start();
-            try
-            {
-                conn.Open();
-                string sql = @"SELECT * FROM `IntelligentGreenhouse`.
-                `config` LIMIT 1";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    setTemLabelmin.Text=reader.GetString("mintemp");
-                    setTemLabelmax.Text=reader.GetString("maxtemp");
-                    label16.Text=reader.GetString("humidity");
-                    numericUpDown1.Value =Convert.ToInt32(reader.GetString("mintemp"));
-                    numericUpDown2.Value = Convert.ToInt32(reader.GetString("maxtemp"));
-                    numericUpDown3.Value = Convert.ToInt32(reader.GetString("humidity"));
-                }
-                conn.Close();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                MessageBox.Show("提示：本智能系统无法连接到网络服务！！！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
+            
             /*
             try
             {
@@ -501,6 +483,45 @@ namespace WHProject
         {
             Process.Start("http://103.42.30.126/");
         
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            try
+            {
+                ///
+                this.ShowStatusForm(100, "数据加载中......", 0);
+                for (int i = 0; i < 96; i++)
+                {
+                    SystemEx.Delay(20);
+                    this.SetStatusFormDescription("数据加载中(" + i + "%)......");
+                    this.SetStatusFormStepIt();
+                }
+
+                ///
+                conn.Open();
+                string sql = @"SELECT * FROM `IntelligentGreenhouse`.
+                `config` LIMIT 1";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    setTemLabelmin.Text = reader.GetString("mintemp");
+                    setTemLabelmax.Text = reader.GetString("maxtemp");
+                    label16.Text = reader.GetString("humidity");
+                    numericUpDown1.Value = Convert.ToInt32(reader.GetString("mintemp"));
+                    numericUpDown2.Value = Convert.ToInt32(reader.GetString("maxtemp"));
+                    numericUpDown3.Value = Convert.ToInt32(reader.GetString("humidity"));
+                }
+                conn.Close();
+                this.HideStatusForm();
+            }
+            catch (Exception ex)
+            {
+                this.HideStatusForm();
+                Console.WriteLine(ex.Message);
+                this.ShowErrorDialog("错误！无法连接网络。");
+            }
         }
 
         private void timer5_Tick(object sender, EventArgs e)

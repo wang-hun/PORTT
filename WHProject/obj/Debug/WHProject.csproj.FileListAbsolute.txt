@@ -15,3 +15,5 @@ D:\系统默认\work\串口\WHProject\WHProject\bin\Debug\MySql.Data.xml
 D:\系统默认\work\串口\WHProject\WHProject\obj\Debug\WHProject.csproj.CopyComplete
 D:\系统默认\work\串口\WHProject\WHProject\bin\Debug\Newtonsoft.Json.dll
 D:\系统默认\work\串口\WHProject\WHProject\bin\Debug\Newtonsoft.Json.xml
+D:\系统默认\work\串口\WHProject\WHProject\bin\Debug\SunnyUI.Common.dll
+D:\系统默认\work\串口\WHProject\WHProject\bin\Debug\SunnyUI.dll
