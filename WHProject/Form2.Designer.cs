@@ -40,7 +40,7 @@ namespace WHProject
             this.textBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.textBox1.Font = new System.Drawing.Font("宋体", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox1.ForeColor = System.Drawing.Color.Red;
-            this.textBox1.Location = new System.Drawing.Point(28, 434);
+            this.textBox1.Location = new System.Drawing.Point(28, 443);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -53,7 +53,7 @@ namespace WHProject
             this.pictureBox1.BackgroundImage = global::WHProject.Resource1.说明2;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(28, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(28, 35);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(613, 397);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -62,17 +62,16 @@ namespace WHProject
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(668, 741);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form2";
             this.Text = "帮助信息V1.0";
+            this.ZoomScaleRect = new System.Drawing.Rectangle(18, 18, 668, 741);
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

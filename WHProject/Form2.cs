@@ -8,10 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sunny.UI;
 
 namespace WHProject
 {
-    public partial class Form2 : Form
+    public partial class Form2 : UIForm
     {
         public Form2()
         {

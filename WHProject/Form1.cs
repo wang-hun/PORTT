@@ -54,10 +54,9 @@ namespace WHProject
             button1.Enabled = false;
             button2.Enabled = false;
             button3.Enabled = false;
-            textBox1.ReadOnly = true;
-            textBox1.Text = "未连接到设备";
-            textBox1.BackColor = Color.Yellow;
-            toolTip1.SetToolTip(helpbutton, "查看帮助信息");
+            uiScrollingText1.Text = "未连接到设备";
+            uiScrollingText1.ForeColor = Color.Black;
+            uiToolTip1.SetToolTip(uiSymbolButton1, "查看帮助信息","功能提示",61530, 32, UIColor.Green);
             toolTip2.SetToolTip(solvebut, "查看分析信息");
             max = 0;
             min = 100;
@@ -263,9 +262,9 @@ namespace WHProject
                         cont1 = false;
                         button1.Enabled = false;
                         button2.Enabled = true;
-                        textBox1.Text = "温室过热，风扇强制启动中";
+                        uiScrollingText1.Text = "温室过热，风扇强制启动中";
                         Console.Beep(2280, 1500);
-                        textBox1.BackColor = Color.Red;
+                        uiScrollingText1.ForeColor = Color.Red;
                         if (f2 == false) {
                             f2 = true;
                             button2.Text = "打开灯";
@@ -287,8 +286,8 @@ namespace WHProject
                         cont1 = false;
                         button1.Enabled = true;
                         button2.Enabled = false;
-                        textBox1.Text = "温度过低，补光灯强制启动中";
-                        textBox1.BackColor = Color.Red;
+                        uiScrollingText1.Text = "温度过低，补光灯强制启动中";
+                        uiScrollingText1.ForeColor = Color.Red;
                         Console.Beep(2280, 1500);
                         if (f1 == false)
                         {
@@ -333,8 +332,8 @@ namespace WHProject
                     button3.Enabled = true;
                     button1.Enabled = true;
                     button2.Enabled = true;
-                    textBox1.Text = "提示：智能控制已关闭";
-                    textBox1.BackColor = Color.ForestGreen;
+                    uiScrollingText1.Text = "提示：智能控制已关闭";
+                    uiScrollingText1.ForeColor = Color.ForestGreen;
                 }
             }
             catch {
@@ -375,20 +374,7 @@ namespace WHProject
                         textBox1.BackColor = Color.ForestGreen;
                     }*/
         public static bool sw = false;//自动控制开关
-        private void trackBar1_ValueChanged(object sender, EventArgs e)
-        {
-            if (trackBar1.Value == 0)
-            {
-                sw = false;
-            }
-            else { 
-                sw = true;
-                if (portMar.IsOpen)
-                {
-                    textBox1.Text = "一切正常";
-                }
-            }
-        }
+      
         private void Init_Chart()
         {
             #region chart1  
@@ -526,6 +512,35 @@ namespace WHProject
             }
         }
 
+        private void uiSymbolButton1_Click(object sender, EventArgs e)
+        {
+            if (fr2 == null || fr2.IsDisposed)
+            {
+                fr2 = new Form2();
+                fr2.Show();
+            }
+            else
+            {
+                fr2.Focus();
+            }
+        }
+
+        private void uiTurnSwitch1_ValueChanged(object sender, bool value)
+        {
+            if (value)
+            {
+                sw = false;
+            }
+            else
+            {
+                sw = true;
+                if (portMar.IsOpen)
+                {
+                    uiScrollingText1.Text = "一切正常";
+                }
+            }
+        }
+
         private void timer5_Tick(object sender, EventArgs e)
         {
             try
@@ -556,8 +571,8 @@ namespace WHProject
                     {
                         cont2 = false;
                         button3.Enabled = false;
-                        textBox1.Text = "湿度过低，水闸强制启动中";
-                        textBox1.BackColor = Color.Red;
+                        uiScrollingText1.Text = "湿度过低，水闸强制启动中";
+                        uiScrollingText1.ForeColor = Color.Red;
                         if (f3 == true)
                         {
                             f3 = false;
@@ -574,8 +589,8 @@ namespace WHProject
                         button3.Enabled = true;
                         if (cont2 & cont1)
                         {
-                            textBox1.Text = "一切正常";
-                            textBox1.BackColor = Color.Green;
+                            uiScrollingText1.Text = "一切正常";
+                            uiScrollingText1.ForeColor = Color.Green;
                         }
                         if (f3 == false)
                         {
@@ -595,8 +610,8 @@ namespace WHProject
                     button3.Enabled = true;
                     button1.Enabled = true;
                     button2.Enabled = true;
-                    textBox1.Text = "提示：智能控制已关闭";
-                    textBox1.BackColor = Color.ForestGreen;
+                    uiScrollingText1.Text = "提示：智能控制已关闭";
+                    uiScrollingText1.ForeColor = Color.ForestGreen;
                 }
             }
             catch
@@ -613,7 +628,7 @@ namespace WHProject
 
         private void timer4_Tick(object sender, EventArgs e)
         {
-            timeBox.Text = DateTime.Now.ToString();
+            uiLedLabel2.Text = DateTime.Now.ToString();
         }
         /*
                 private void solvebut_Click(object sender, EventArgs e)
@@ -661,18 +676,6 @@ namespace WHProject
             }
         }
 
-        private void helpbutton_Click(object sender, EventArgs e)
-        {
-            if (fr2 == null || fr2.IsDisposed)
-            {
-                fr2 = new Form2();
-                fr2.Show();
-            }
-            else
-            {
-                fr2.Focus();
-            }
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -718,8 +721,8 @@ namespace WHProject
                     MubNum.Text = "--";
                     timer1.Stop();
                     uiThermometer1.Value = 0;
-                    textBox1.Text = "未连接到设备";
-                    textBox1.BackColor = Color.Yellow;
+                    uiScrollingText1.Text = "未连接到设备";
+                    uiScrollingText1.ForeColor = Color.Black;
                     Init_Chart();
                     timer3.Stop();
                 }
@@ -739,8 +742,8 @@ namespace WHProject
                     openStreamBt.Text = "关闭通道";
                     openStreamBt.BackColor = Color.Firebrick;
                     timer1.Start();
-                    textBox1.Text = "一切正常";
-                    textBox1.BackColor = Color.ForestGreen;
+                    uiScrollingText1.Text = "一切正常";
+                    uiScrollingText1.ForeColor = Color.ForestGreen;
                     Init_Chart();
                     timer3.Start();
                 }
@@ -766,8 +769,8 @@ namespace WHProject
                 uiLedLabel4.Text = "--";
                 timer1.Stop();
                 uiThermometer1.Value = 0;
-                textBox1.Text = "未连接到设备";
-                textBox1.BackColor = Color.Yellow;
+                uiScrollingText1.Text = "未连接到设备";
+                uiScrollingText1.ForeColor = Color.Black;
                 Init_Chart();
                 timer3.Stop();
             }
