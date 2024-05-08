@@ -1,0 +1,17 @@
+D:\系统默认\work\串口\WHProject\WHProject\bin\Debug\WHProject.exe.config
+D:\系统默认\work\串口\WHProject\WHProject\bin\Debug\WHProject.exe
+D:\系统默认\work\串口\WHProject\WHProject\bin\Debug\WHProject.pdb
+D:\系统默认\work\串口\WHProject\WHProject\obj\Debug\WHProject.csproj.AssemblyReference.cache
+D:\系统默认\work\串口\WHProject\WHProject\obj\Debug\WHProject.Form1.resources
+D:\系统默认\work\串口\WHProject\WHProject\obj\Debug\WHProject.Properties.Resources.resources
+D:\系统默认\work\串口\WHProject\WHProject\obj\Debug\WHProject.csproj.GenerateResource.cache
+D:\系统默认\work\串口\WHProject\WHProject\obj\Debug\WHProject.csproj.CoreCompileInputs.cache
+D:\系统默认\work\串口\WHProject\WHProject\obj\Debug\WHProject.exe
+D:\系统默认\work\串口\WHProject\WHProject\obj\Debug\WHProject.pdb
+D:\系统默认\work\串口\WHProject\WHProject\obj\Debug\WHProject.Resource1.resources
+D:\系统默认\work\串口\WHProject\WHProject\obj\Debug\WHProject.Form2.resources
+D:\系统默认\work\串口\WHProject\WHProject\bin\Debug\MySql.Data.dll
+D:\系统默认\work\串口\WHProject\WHProject\bin\Debug\MySql.Data.xml
+D:\系统默认\work\串口\WHProject\WHProject\obj\Debug\WHProject.csproj.CopyComplete
+D:\系统默认\work\串口\WHProject\WHProject\bin\Debug\Newtonsoft.Json.dll
+D:\系统默认\work\串口\WHProject\WHProject\bin\Debug\Newtonsoft.Json.xml
