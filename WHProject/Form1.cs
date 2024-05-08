@@ -49,7 +49,8 @@ namespace WHProject
             button1.BackColor = Color.ForestGreen;
             button2.BackColor = Color.ForestGreen;
             button3.BackColor = Color.ForestGreen;
-          //temlabel.Text = "--";
+            //temlabel.Text = "--";
+            uiThermometer1.Value = 0;
             button1.Enabled = false;
             button2.Enabled = false;
             button3.Enabled = false;
@@ -117,7 +118,7 @@ namespace WHProject
             {
                 //响铃并显示异常给用户
                 System.Media.SystemSounds.Beep.Play();
-                MessageBox.Show(ex.Message);
+                this.ShowErrorDialog("错误提示", ex.Message);
 
             }
 
@@ -187,8 +188,8 @@ namespace WHProject
                  VALUES ('"+ temlabel.Text+ "', '上位机', '"+ MubNum.Text+ "'); ";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
-           
-                progressBar1.Value = Convert.ToInt32(temlabel.Text);
+
+                uiThermometer1.Value= Convert.ToInt32(temlabel.Text);
                 conn.Close();
             }
             catch {
@@ -226,8 +227,8 @@ namespace WHProject
             }
             else
             {
-                string errorMessage = "最高温度不能低于最低温度！"; 
-                MessageBox.Show(errorMessage, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string errorMessage = "最高温度不能低于最低温度！";
+                this.ShowErrorDialog("提示",errorMessage);
             }
         }
         public int tem, mu;
@@ -520,7 +521,8 @@ namespace WHProject
             {
                 this.HideStatusForm();
                 Console.WriteLine(ex.Message);
-                this.ShowErrorDialog("错误！无法连接网络。");
+                this.ShowErrorDialog("错误","错误！无法连接网络。");
+
             }
         }
 
@@ -645,18 +647,17 @@ namespace WHProject
                                   + $"最低温度：{dataObject["data"]["minTemp"]}℃\n"
                                   + $"最高温度：{dataObject["data"]["maxTemp"]}℃\n"+
                                   $"最大温差：{Convert.ToInt32(dataObject["data"]["maxTemp"])- Convert.ToInt32(dataObject["data"]["minTemp"])}℃\n";
-
-                        MessageBox.Show(str, "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.ShowInfoDialog("信息提示", str);
                     }
                     else
                     {
-                        MessageBox.Show("无法获取或解析服务器数据", "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.ShowErrorDialog("错误提示", "无法获取或解析服务器数据");
                     }
                 }
             }
             else
             {
-                MessageBox.Show("端口未打开，无法获取远程数据", "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.ShowErrorDialog("错误提示", "端口未打开，无法获取远程数据");
             }
         }
 
@@ -716,7 +717,7 @@ namespace WHProject
                     temlabel.Text = "--";
                     MubNum.Text = "--";
                     timer1.Stop();
-                    progressBar1.Value = 0;
+                    uiThermometer1.Value = 0;
                     textBox1.Text = "未连接到设备";
                     textBox1.BackColor = Color.Yellow;
                     Init_Chart();
@@ -757,14 +758,14 @@ namespace WHProject
                 System.Media.SystemSounds.Beep.Play();
                 openStreamBt.Text = "打开串口";
                 openStreamBt.BackColor = Color.ForestGreen;
-                MessageBox.Show(ex.Message);
+                this.ShowErrorDialog("错误",ex.Message);
                 portsBox.Enabled = true;
                 button1.Enabled = false;
                 button2.Enabled = false;
                 button3.Enabled = false;
                 temlabel.Text = "--";
                 timer1.Stop();
-                progressBar1.Value = 0;
+                uiThermometer1.Value = 0;
                 textBox1.Text = "未连接到设备";
                 textBox1.BackColor = Color.Yellow;
                 Init_Chart();

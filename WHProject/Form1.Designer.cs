@@ -40,7 +40,6 @@ namespace WHProject
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label2 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.setTemLabelmin = new System.Windows.Forms.Label();
@@ -55,8 +54,6 @@ namespace WHProject
             this.yusheBut = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.yusheBox = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -92,6 +89,8 @@ namespace WHProject
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.label17 = new System.Windows.Forms.Label();
+            this.uiThermometer1 = new Sunny.UI.UIThermometer();
+            this.uiRuler3 = new Sunny.UI.UIRuler();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -115,7 +114,7 @@ namespace WHProject
             this.temlabel.AutoSize = true;
             this.temlabel.Font = new System.Drawing.Font("黑体", 41.94783F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.temlabel.ForeColor = System.Drawing.Color.Blue;
-            this.temlabel.Location = new System.Drawing.Point(265, 12);
+            this.temlabel.Location = new System.Drawing.Point(119, 34);
             this.temlabel.Name = "temlabel";
             this.temlabel.Size = new System.Drawing.Size(97, 68);
             this.temlabel.TabIndex = 7;
@@ -129,7 +128,7 @@ namespace WHProject
             // 
             this.pictureBox1.BackgroundImage = global::WHProject.Resource1.pci1;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(368, 7);
+            this.pictureBox1.Location = new System.Drawing.Point(368, 34);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(91, 86);
             this.pictureBox1.TabIndex = 15;
@@ -171,19 +170,11 @@ namespace WHProject
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // progressBar1
-            // 
-            this.progressBar1.ForeColor = System.Drawing.Color.Lime;
-            this.progressBar1.Location = new System.Drawing.Point(42, 66);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(189, 25);
-            this.progressBar1.TabIndex = 19;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 13.77391F);
-            this.label2.Location = new System.Drawing.Point(93, 30);
+            this.label2.Location = new System.Drawing.Point(15, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 22);
             this.label2.TabIndex = 20;
@@ -222,7 +213,7 @@ namespace WHProject
             // 
             this.pictureBox2.BackgroundImage = global::WHProject.Resource1.pci1;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(368, 123);
+            this.pictureBox2.Location = new System.Drawing.Point(368, 141);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(91, 86);
             this.pictureBox2.TabIndex = 23;
@@ -274,18 +265,17 @@ namespace WHProject
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.uiRuler3);
+            this.panel2.Controls.Add(this.uiThermometer1);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.yusheBut);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.yusheBox);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.numericUpDown2);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.setTemLabelmax);
-            this.panel2.Controls.Add(this.progressBar1);
             this.panel2.Controls.Add(this.numericUpDown1);
             this.panel2.Controls.Add(this.button4);
             this.panel2.Controls.Add(this.label2);
@@ -358,26 +348,6 @@ namespace WHProject
             this.yusheBox.Name = "yusheBox";
             this.yusheBox.Size = new System.Drawing.Size(189, 27);
             this.yusheBox.TabIndex = 7;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("宋体", 13.77391F);
-            this.label10.Location = new System.Drawing.Point(192, 95);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 22);
-            this.label10.TabIndex = 36;
-            this.label10.Text = "100℃";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("宋体", 13.77391F);
-            this.label9.Location = new System.Drawing.Point(26, 95);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 22);
-            this.label9.TabIndex = 35;
-            this.label9.Text = "0℃";
             // 
             // label8
             // 
@@ -752,6 +722,30 @@ namespace WHProject
             this.label17.TabIndex = 41;
             this.label17.Text = "分钟内";
             // 
+            // uiThermometer1
+            // 
+            this.uiThermometer1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiThermometer1.Location = new System.Drawing.Point(290, 3);
+            this.uiThermometer1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiThermometer1.Name = "uiThermometer1";
+            this.uiThermometer1.Size = new System.Drawing.Size(49, 131);
+            this.uiThermometer1.TabIndex = 113;
+            this.uiThermometer1.Text = "uiThermometer1";
+            this.uiThermometer1.Value = 100;
+            // 
+            // uiRuler3
+            // 
+            this.uiRuler3.BackColor = System.Drawing.Color.Transparent;
+            this.uiRuler3.Direction = Sunny.UI.UITrackBar.BarDirection.Vertical;
+            this.uiRuler3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiRuler3.Location = new System.Drawing.Point(248, 3);
+            this.uiRuler3.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiRuler3.MinorCount = 4;
+            this.uiRuler3.Name = "uiRuler3";
+            this.uiRuler3.Size = new System.Drawing.Size(35, 131);
+            this.uiRuler3.TabIndex = 114;
+            this.uiRuler3.Text = "uiRuler3";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -816,7 +810,6 @@ namespace WHProject
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label setTemLabelmin;
@@ -839,8 +832,6 @@ namespace WHProject
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox solvebut;
         private System.Windows.Forms.ToolTip toolTip2;
         private System.Windows.Forms.Label label11;
@@ -868,6 +859,8 @@ namespace WHProject
         private System.Windows.Forms.Timer timer5;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.Label label17;
+        private Sunny.UI.UIThermometer uiThermometer1;
+        private Sunny.UI.UIRuler uiRuler3;
     }
 }
 
