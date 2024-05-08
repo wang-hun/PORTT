@@ -103,7 +103,7 @@ namespace WHProject
 
                         strs = strs[strs.Length - 1].Split('-');
 
-                        temlabel.Text = strs[0];
+                        uiLedLabel4.Text = strs[0];
                         if (strs.Length > 1)
                         {
                             MubNum.Text = strs[1];
@@ -180,16 +180,16 @@ namespace WHProject
         {
             try
             {
-                Convert.ToInt32(temlabel.Text);
+                Convert.ToInt32(uiLedLabel4.Text);
                 Convert.ToInt32(MubNum.Text);
                 conn.Open();
                 string sql = @"INSERT INTO `IntelligentGreenhouse`.
                 `data`(`temp`, `source`, `humidity`) 
-                 VALUES ('"+ temlabel.Text+ "', '上位机', '"+ MubNum.Text+ "'); ";
+                 VALUES ('"+ uiLedLabel4.Text+ "', '上位机', '"+ MubNum.Text+ "'); ";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
 
-                uiThermometer1.Value= Convert.ToInt32(temlabel.Text);
+                uiThermometer1.Value= Convert.ToInt32(uiLedLabel4.Text);
                 conn.Close();
             }
             catch {
@@ -238,7 +238,7 @@ namespace WHProject
             try
             {
                 mu = Convert.ToInt32(label16.Text);
-                tem = Convert.ToInt32(temlabel.Text);
+                tem = Convert.ToInt32(uiLedLabel4.Text);
                /*
                 if (portMar.IsOpen)
                 {
@@ -429,7 +429,7 @@ namespace WHProject
             //在点集0(serials[0])中加入新的点XY
             //TIP:如果你使用数组存放要绘制的点,每次绘图从上一次绘制结束的位置开始即可
             //不需要每次画图都从第一个点开始绘制
-            this.chart1.Series[0].Points.AddXY(time,temlabel.Text);
+            this.chart1.Series[0].Points.AddXY(time, uiLedLabel4.Text);
             ///记录操作
             if (chart1.Series[0].Points.Count > HokmaNum)
             {
@@ -531,7 +531,7 @@ namespace WHProject
             try
             {
                 mu = Convert.ToInt32(label16.Text);
-                tem = Convert.ToInt32(temlabel.Text);
+                tem = Convert.ToInt32(uiLedLabel4.Text);
                 /*
                  if (portMar.IsOpen)
                  {
@@ -714,7 +714,7 @@ namespace WHProject
                     button1.Enabled = false;
                     button2.Enabled = false;
                     button3.Enabled = false;
-                    temlabel.Text = "--";
+                    uiLedLabel4.Text = "--";
                     MubNum.Text = "--";
                     timer1.Stop();
                     uiThermometer1.Value = 0;
@@ -763,7 +763,7 @@ namespace WHProject
                 button1.Enabled = false;
                 button2.Enabled = false;
                 button3.Enabled = false;
-                temlabel.Text = "--";
+                uiLedLabel4.Text = "--";
                 timer1.Stop();
                 uiThermometer1.Value = 0;
                 textBox1.Text = "未连接到设备";
