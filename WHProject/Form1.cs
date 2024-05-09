@@ -57,7 +57,7 @@ namespace WHProject
             uiScrollingText1.Text = "未连接到设备";
             uiScrollingText1.ForeColor = Color.Black;
             uiToolTip1.SetToolTip(uiSymbolButton1, "查看帮助信息","功能提示",61530, 32, UIColor.Green);
-            toolTip2.SetToolTip(solvebut, "查看分析信息");
+            uiToolTip2.SetToolTip(uiSymbolButton5, "查看帮助信息", "功能提示", 61530, 32, UIColor.Green);
             max = 0;
             min = 100;
             timer2.Start();
@@ -105,7 +105,7 @@ namespace WHProject
                         uiLedLabel4.Text = strs[0];
                         if (strs.Length > 1)
                         {
-                            MubNum.Text = strs[1];
+                            uiLedLabel3.Text = strs[1];
                         }
                     }
                 }
@@ -180,11 +180,11 @@ namespace WHProject
             try
             {
                 Convert.ToInt32(uiLedLabel4.Text);
-                Convert.ToInt32(MubNum.Text);
+                Convert.ToInt32(uiLedLabel3.Text);
                 conn.Open();
                 string sql = @"INSERT INTO `IntelligentGreenhouse`.
                 `data`(`temp`, `source`, `humidity`) 
-                 VALUES ('"+ uiLedLabel4.Text+ "', '上位机', '"+ MubNum.Text+ "'); ";
+                 VALUES ('"+ uiLedLabel4.Text+ "', '上位机', '"+ uiLedLabel3.Text+ "'); ";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -567,7 +567,7 @@ namespace WHProject
 
 
 
-                    if (mu > Convert.ToInt32(MubNum.Text))
+                    if (mu > Convert.ToInt32(uiLedLabel3.Text))
                     {
                         cont2 = false;
                         button3.Enabled = false;
@@ -583,7 +583,7 @@ namespace WHProject
 
                         }
                     }
-                    else if (mu <= Convert.ToInt32(MubNum.Text))
+                    else if (mu <= Convert.ToInt32(uiLedLabel3.Text))
                     {
                         cont2 = true;
                         button3.Enabled = true;
@@ -619,13 +619,13 @@ namespace WHProject
                 ;
             }
         }
-
+       
         private void button5_Click(object sender, EventArgs e)
         {
             label16.Text = numericUpDown3.Value.ToString();
             sqlInSever();
         }
-
+        
         private void timer4_Tick(object sender, EventArgs e)
         {
             uiLedLabel2.Text = DateTime.Now.ToString();
@@ -718,7 +718,7 @@ namespace WHProject
                     button2.Enabled = false;
                     button3.Enabled = false;
                     uiLedLabel4.Text = "--";
-                    MubNum.Text = "--";
+                    uiLedLabel3.Text = "--";
                     timer1.Stop();
                     uiThermometer1.Value = 0;
                     uiScrollingText1.Text = "未连接到设备";
