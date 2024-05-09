@@ -44,7 +44,6 @@ namespace WHProject
             //获取电脑当前可用串口并添加到选项列表中
             portsBox.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
             portsBox.Text = "COM3";
-            yusheBox.Text = "玉米";
             openStreamBt.BackColor = Color.ForestGreen;
             button1.BackColor = Color.ForestGreen;
             button2.BackColor = Color.ForestGreen;

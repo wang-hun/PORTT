@@ -54,7 +54,6 @@ namespace WHProject
             this.panel4 = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label12 = new System.Windows.Forms.Label();
-            this.yusheBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -93,6 +92,7 @@ namespace WHProject
             this.uiSymbolButton4 = new Sunny.UI.UISymbolButton();
             this.uiSymbolButton5 = new Sunny.UI.UISymbolButton();
             this.uiToolTip2 = new Sunny.UI.UIToolTip(this.components);
+            this.yusheBox = new Sunny.UI.UIComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -203,7 +203,7 @@ namespace WHProject
             this.numericUpDown1.ForeColor = System.Drawing.Color.Black;
             this.numericUpDown1.Location = new System.Drawing.Point(119, 284);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(189, 46);
+            this.numericUpDown1.Size = new System.Drawing.Size(200, 46);
             this.numericUpDown1.TabIndex = 25;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown1.Value = new decimal(new int[] {
@@ -221,6 +221,7 @@ namespace WHProject
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.yusheBox);
             this.panel2.Controls.Add(this.uiSymbolButton4);
             this.panel2.Controls.Add(this.uiSymbolButton3);
             this.panel2.Controls.Add(this.uiLine1);
@@ -229,7 +230,6 @@ namespace WHProject
             this.panel2.Controls.Add(this.uiThermometer1);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.yusheBox);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.numericUpDown2);
@@ -347,27 +347,12 @@ namespace WHProject
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("黑体", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label12.ForeColor = System.Drawing.Color.Blue;
-            this.label12.Location = new System.Drawing.Point(7, 438);
+            this.label12.Location = new System.Drawing.Point(7, 441);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(98, 22);
             this.label12.TabIndex = 37;
             this.label12.Text = "预设调控";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // yusheBox
-            // 
-            this.yusheBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.yusheBox.FormattingEnabled = true;
-            this.yusheBox.Items.AddRange(new object[] {
-            "玉米",
-            "花生",
-            "小麦",
-            "土豆"});
-            this.yusheBox.Location = new System.Drawing.Point(119, 438);
-            this.yusheBox.Margin = new System.Windows.Forms.Padding(0, 3, 0, 10);
-            this.yusheBox.Name = "yusheBox";
-            this.yusheBox.Size = new System.Drawing.Size(189, 27);
-            this.yusheBox.TabIndex = 7;
             // 
             // label8
             // 
@@ -400,7 +385,7 @@ namespace WHProject
             this.numericUpDown2.ForeColor = System.Drawing.Color.Black;
             this.numericUpDown2.Location = new System.Drawing.Point(119, 348);
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(189, 46);
+            this.numericUpDown2.Size = new System.Drawing.Size(200, 46);
             this.numericUpDown2.TabIndex = 32;
             this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown2.Value = new decimal(new int[] {
@@ -800,7 +785,7 @@ namespace WHProject
             // 
             this.uiSymbolButton4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton4.Location = new System.Drawing.Point(337, 427);
+            this.uiSymbolButton4.Location = new System.Drawing.Point(336, 428);
             this.uiSymbolButton4.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton4.Name = "uiSymbolButton4";
             this.uiSymbolButton4.Radius = 25;
@@ -835,6 +820,34 @@ namespace WHProject
             this.uiToolTip2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(239)))), ((int)(((byte)(239)))));
             this.uiToolTip2.OwnerDraw = true;
             this.uiToolTip2.ToolTipTitle = "提示：";
+            // 
+            // yusheBox
+            // 
+            this.yusheBox.DataSource = null;
+            this.yusheBox.DropDownStyle = Sunny.UI.UIDropDownStyle.DropDownList;
+            this.yusheBox.FillColor = System.Drawing.Color.White;
+            this.yusheBox.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.yusheBox.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.yusheBox.Items.AddRange(new object[] {
+            "-请选择预设作物-",
+            "玉米",
+            "花生",
+            "小麦",
+            "土豆"});
+            this.yusheBox.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.yusheBox.Location = new System.Drawing.Point(119, 431);
+            this.yusheBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.yusheBox.MinimumSize = new System.Drawing.Size(63, 0);
+            this.yusheBox.Name = "yusheBox";
+            this.yusheBox.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.yusheBox.Size = new System.Drawing.Size(200, 41);
+            this.yusheBox.SymbolDropDown = 57411;
+            this.yusheBox.SymbolNormal = 57412;
+            this.yusheBox.SymbolSize = 28;
+            this.yusheBox.TabIndex = 120;
+            this.yusheBox.Text = "-请选择预设作物-";
+            this.yusheBox.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.yusheBox.Watermark = "";
             // 
             // Form1
             // 
@@ -911,7 +924,6 @@ namespace WHProject
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox yusheBox;
         private System.Windows.Forms.Timer timer4;
         private System.Windows.Forms.Button openStreamBt;
         private System.Windows.Forms.Label label1;
@@ -950,6 +962,7 @@ namespace WHProject
         private Sunny.UI.UISymbolButton uiSymbolButton3;
         private Sunny.UI.UISymbolButton uiSymbolButton5;
         private Sunny.UI.UIToolTip uiToolTip2;
+        private Sunny.UI.UIComboBox yusheBox;
     }
 }
 
