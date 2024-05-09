@@ -95,6 +95,8 @@ namespace WHProject
             this.uiLabel2 = new Sunny.UI.UILabel();
             this.uiSymbolButton5 = new Sunny.UI.UISymbolButton();
             this.uiToolTip2 = new Sunny.UI.UIToolTip(this.components);
+            this.uiLabel4 = new Sunny.UI.UILabel();
+            this.uiLedStopwatch1 = new Sunny.UI.UILedStopwatch();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -887,13 +889,39 @@ namespace WHProject
             this.uiToolTip2.OwnerDraw = true;
             this.uiToolTip2.ToolTipTitle = "提示：";
             // 
+            // uiLabel4
+            // 
+            this.uiLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.uiLabel4.Font = new System.Drawing.Font("宋体", 13.772F);
+            this.uiLabel4.ForeColor = System.Drawing.Color.White;
+            this.uiLabel4.Location = new System.Drawing.Point(103, 834);
+            this.uiLabel4.Name = "uiLabel4";
+            this.uiLabel4.Size = new System.Drawing.Size(100, 23);
+            this.uiLabel4.TabIndex = 80;
+            this.uiLabel4.Text = "运行时长";
+            this.uiLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiLedStopwatch1
+            // 
+            this.uiLedStopwatch1.Active = true;
+            this.uiLedStopwatch1.BackColor = System.Drawing.Color.Black;
+            this.uiLedStopwatch1.ForeColor = System.Drawing.Color.Lime;
+            this.uiLedStopwatch1.Location = new System.Drawing.Point(222, 826);
+            this.uiLedStopwatch1.Name = "uiLedStopwatch1";
+            this.uiLedStopwatch1.ShowType = Sunny.UI.UILedStopwatch.TimeShowType.hhmmss;
+            this.uiLedStopwatch1.Size = new System.Drawing.Size(190, 34);
+            this.uiLedStopwatch1.TabIndex = 81;
+            this.uiLedStopwatch1.Text = "00:02:36";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::WHProject.Resource1.pic2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1069, 830);
+            this.ClientSize = new System.Drawing.Size(1069, 876);
+            this.Controls.Add(this.uiLedStopwatch1);
+            this.Controls.Add(this.uiLabel4);
             this.Controls.Add(this.uiSymbolButton5);
             this.Controls.Add(this.uiLabel2);
             this.Controls.Add(this.uiLabel1);
@@ -996,6 +1024,8 @@ namespace WHProject
         private Sunny.UI.UILinkLabel uiLinkLabel1;
         private Sunny.UI.UISymbolLabel uiSymbolLabel4;
         private Sunny.UI.UISymbolLabel uiSymbolLabel5;
+        private Sunny.UI.UILabel uiLabel4;
+        private Sunny.UI.UILedStopwatch uiLedStopwatch1;
     }
 }
 
