@@ -51,8 +51,12 @@ namespace WHProject
             //temlabel.Text = "--";
             uiThermometer1.Value = 0;
             button1.Enabled = false;
+            button1.Symbol = 61534;
+     
             button2.Enabled = false;
+            button2.Symbol = 61534;
             button3.Enabled = false;
+            button3.Symbol = 61534;
             uiScrollingText1.Text = "未连接到设备";
             uiScrollingText1.ForeColor = Color.Black;
             uiToolTip1.SetToolTip(uiSymbolButton1, "查看帮助信息","功能提示",61530, 32, UIColor.Green);
@@ -116,7 +120,8 @@ namespace WHProject
             {
                 //响铃并显示异常给用户
                 System.Media.SystemSounds.Beep.Play();
-                this.ShowErrorDialog("错误提示", ex.Message);
+                
+                this.ShowErrorDialog("错误提示", ex.Message, UIStyle.Red, true, 5000);
 
             }
 
@@ -156,12 +161,12 @@ namespace WHProject
             if (f2)
             {
               
-                button2.Text = "关闭灯";
+                button2.Text = "关闭灯光";
                 button2.BackColor = Color.Firebrick;
             }
             else
             {
-                button2.Text = "打开灯";
+                button2.Text = "打开灯光";
                 button2.BackColor = Color.ForestGreen;
            
 
@@ -226,7 +231,8 @@ namespace WHProject
             else
             {
                 string errorMessage = "最高温度不能低于最低温度！";
-                this.ShowErrorDialog("提示",errorMessage);
+
+                this.ShowErrorDialog("提示",errorMessage, UIStyle.Red, true, 5000);
             }
         }
         public int tem, mu;
@@ -260,13 +266,15 @@ namespace WHProject
                     {
                         cont1 = false;
                         button1.Enabled = false;
+                        button1.Symbol=61475;
                         button2.Enabled = true;
+                        button2.Symbol = 57453;
                         uiScrollingText1.Text = "温室过热，风扇强制启动中";
                         Console.Beep(2280, 1500);
                         uiScrollingText1.ForeColor = Color.Red;
                         if (f2 == false) {
                             f2 = true;
-                            button2.Text = "打开灯";
+                            button2.Text = "打开灯光";
                             button2.BackColor = Color.ForestGreen;
                             portMar.Write("b");
                         }else
@@ -283,8 +291,11 @@ namespace WHProject
                     if (tem < Convert.ToInt32(setTemLabelmin.Text))
                     {
                         cont1 = false;
+                        button1.Symbol = 57453;
                         button1.Enabled = true;
+                        button2.Symbol = 61475;
                         button2.Enabled = false;
+                       
                         uiScrollingText1.Text = "温度过低，补光灯强制启动中";
                         uiScrollingText1.ForeColor = Color.Red;
                         Console.Beep(2280, 1500);
@@ -298,7 +309,7 @@ namespace WHProject
                         if (f2 == true)
                         {
                             f2 = false;
-                            button2.Text = "关闭灯";
+                            button2.Text = "关闭灯光";
                             button2.BackColor = Color.Firebrick;
                             portMar.Write("b");
 
@@ -317,20 +328,27 @@ namespace WHProject
                         if (f2 == false)
                         {
                             f2 = true;
-                            button2.Text = "打开灯";
+                            button2.Text = "打开灯光";
                             button2.BackColor = Color.ForestGreen;
                             portMar.Write("b");
                         }
                         button2.Enabled = true;
+                        button2.Symbol = 57453;
                         button1.Enabled = true;
+                        button1.Symbol = 57453;
                         cont1 = true;
                     }
                 }
                 else if (portMar.IsOpen)
                 {
                     button3.Enabled = true;
+                    button3.Symbol = 57453;
                     button1.Enabled = true;
+                    button1.Symbol = 57453;
                     button2.Enabled = true;
+                    button2.Symbol = 57453;
+               
+                  
                     uiScrollingText1.Text = "提示：智能控制已关闭";
                     uiScrollingText1.ForeColor = Color.ForestGreen;
                 }
@@ -506,7 +524,7 @@ namespace WHProject
             {
                 this.HideStatusForm();
                 Console.WriteLine(ex.Message);
-                this.ShowErrorDialog("错误","错误！无法连接网络。");
+                this.ShowErrorDialog("错误","错误！无法连接网络。", UIStyle.Red, true, 5000);
 
             }
         }
@@ -570,6 +588,7 @@ namespace WHProject
                     {
                         cont2 = false;
                         button3.Enabled = false;
+                        button3.Symbol = 61475;
                         uiScrollingText1.Text = "湿度过低，水闸强制启动中";
                         uiScrollingText1.ForeColor = Color.Red;
                         if (f3 == true)
@@ -586,6 +605,7 @@ namespace WHProject
                     {
                         cont2 = true;
                         button3.Enabled = true;
+                        button3.Symbol = 57453;
                         if (cont2 & cont1)
                         {
                             uiScrollingText1.Text = "一切正常";
@@ -607,8 +627,11 @@ namespace WHProject
                 else if (portMar.IsOpen)
                 {
                     button3.Enabled = true;
+                    button3.Symbol = 57453;
                     button1.Enabled = true;
+                    button1.Symbol = 57453;
                     button2.Enabled = true;
+                    button2.Symbol = 57453;
                     uiScrollingText1.Text = "提示：智能控制已关闭";
                     uiScrollingText1.ForeColor = Color.ForestGreen;
                 }
@@ -661,17 +684,17 @@ namespace WHProject
                                   + $"最低温度：{dataObject["data"]["minTemp"]}℃\n"
                                   + $"最高温度：{dataObject["data"]["maxTemp"]}℃\n"+
                                   $"最大温差：{Convert.ToInt32(dataObject["data"]["maxTemp"])- Convert.ToInt32(dataObject["data"]["minTemp"])}℃\n";
-                        this.ShowInfoDialog("信息提示", str);
+                        this.ShowInfoDialog("信息提示", str,UIStyle.Gray,true);
                     }
                     else
                     {
-                        this.ShowErrorDialog("错误提示", "无法获取或解析服务器数据");
+                        this.ShowErrorDialog("错误提示", "无法获取或解析服务器数据", UIStyle.Red, true, 5000);
                     }
                 }
             }
             else
             {
-                this.ShowErrorDialog("错误提示", "端口未打开，无法获取远程数据");
+                this.ShowErrorDialog("错误提示", "端口未打开，无法获取远程数据", UIStyle.Red, true, 5000);
             }
         }
 
@@ -714,8 +737,12 @@ namespace WHProject
                     openStreamBt.BackColor = Color.ForestGreen;
                     portsBox.Enabled = true;
                     button1.Enabled = false;
+                    button1.Symbol = 61534;
                     button2.Enabled = false;
+                    button2.Symbol = 61534;
                     button3.Enabled = false;
+                    button3.Symbol = 61534;
+                 
                     uiLedLabel4.Text = "--";
                     uiLedLabel3.Text = "--";
                     timer1.Stop();
@@ -730,8 +757,11 @@ namespace WHProject
                     //串口已经处于关闭状态，则设置好串口属性后打开
                     portsBox.Enabled = false;
                     button1.Enabled = true;
+                    button1.Symbol = 57453;
                     button2.Enabled = true;
+                    button2.Symbol = 57453;
                     button3.Enabled = true;
+                    button3.Symbol = 57453;
                     portMar.PortName = portsBox.Text;
                     portMar.BaudRate = 115200;
                     portMar.DataBits = 8;
@@ -760,11 +790,15 @@ namespace WHProject
                 System.Media.SystemSounds.Beep.Play();
                 openStreamBt.Text = "打开串口";
                 openStreamBt.BackColor = Color.ForestGreen;
-                this.ShowErrorDialog("错误",ex.Message);
+                this.ShowErrorDialog("错误","通道无法连接：\n"+ex.Message,UIStyle.Red,true,5000);
                 portsBox.Enabled = true;
                 button1.Enabled = false;
+                button1.Symbol = 61534;
+              
                 button2.Enabled = false;
+                button2.Symbol = 61534;
                 button3.Enabled = false;
+                button3.Symbol = 61534;
                 uiLedLabel4.Text = "--";
                 timer1.Stop();
                 uiThermometer1.Value = 0;

@@ -35,13 +35,11 @@ namespace WHProject
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.portMar = new System.IO.Ports.SerialPort(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.setTemLabelmin = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel2 = new Sunny.UI.UIPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.uiSymbolLabel5 = new Sunny.UI.UISymbolLabel();
             this.uiSymbolLabel4 = new Sunny.UI.UISymbolLabel();
             this.uiLinkLabel1 = new Sunny.UI.UILinkLabel();
@@ -60,7 +58,6 @@ namespace WHProject
             this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.setTemLabelmax = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
@@ -69,7 +66,8 @@ namespace WHProject
             this.openStreamBt = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.portsBox = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1 = new Sunny.UI.UIPanel();
+            this.uiLine3 = new Sunny.UI.UILine();
             this.uiSymbolLabel1 = new Sunny.UI.UISymbolLabel();
             this.numericUpDown3 = new Sunny.UI.UIIntegerUpDown();
             this.uiSymbolButton2 = new Sunny.UI.UISymbolButton();
@@ -78,8 +76,7 @@ namespace WHProject
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel3 = new Sunny.UI.UIPanel();
             this.uiSymbolLabel3 = new Sunny.UI.UISymbolLabel();
             this.uiSymbolLabel2 = new Sunny.UI.UISymbolLabel();
             this.uiTurnSwitch1 = new Sunny.UI.UITurnSwitch();
@@ -97,6 +94,9 @@ namespace WHProject
             this.uiToolTip2 = new Sunny.UI.UIToolTip(this.components);
             this.uiLabel4 = new Sunny.UI.UILabel();
             this.uiLedStopwatch1 = new Sunny.UI.UILedStopwatch();
+            this.button1 = new Sunny.UI.UISymbolButton();
+            this.button3 = new Sunny.UI.UISymbolButton();
+            this.button2 = new Sunny.UI.UISymbolButton();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -108,42 +108,6 @@ namespace WHProject
             // portMar
             // 
             this.portMar.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.portMar_DataReceived);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("宋体", 13.77391F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(28, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 68);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "打开风扇";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("宋体", 13.77391F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(335, 129);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 72);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "打开灯";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("宋体", 13.77391F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(179, 127);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(116, 72);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "打开水闸";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // chart1
             // 
@@ -158,16 +122,17 @@ namespace WHProject
             series1.Legend = "Legend1";
             series1.Name = "温度";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(495, 228);
+            this.chart1.Size = new System.Drawing.Size(495, 271);
             this.chart1.TabIndex = 21;
             this.chart1.Text = "温度变化";
             // 
             // setTemLabelmin
             // 
             this.setTemLabelmin.AutoSize = true;
+            this.setTemLabelmin.BackColor = System.Drawing.Color.Transparent;
             this.setTemLabelmin.Font = new System.Drawing.Font("黑体", 41.94783F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.setTemLabelmin.ForeColor = System.Drawing.Color.Blue;
-            this.setTemLabelmin.Location = new System.Drawing.Point(107, 187);
+            this.setTemLabelmin.Location = new System.Drawing.Point(123, 187);
             this.setTemLabelmin.Name = "setTemLabelmin";
             this.setTemLabelmin.Size = new System.Drawing.Size(97, 68);
             this.setTemLabelmin.TabIndex = 22;
@@ -181,8 +146,8 @@ namespace WHProject
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.uiSymbolLabel5);
             this.panel2.Controls.Add(this.uiSymbolLabel4);
             this.panel2.Controls.Add(this.uiLinkLabel1);
@@ -199,19 +164,39 @@ namespace WHProject
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.setTemLabelmax);
             this.panel2.Controls.Add(this.setTemLabelmin);
+            this.panel2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panel2.Location = new System.Drawing.Point(498, 43);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.panel2.Name = "panel2";
+            this.panel2.Radius = 70;
+            this.panel2.RadiusSides = ((Sunny.UI.UICornerRadiusSides)((Sunny.UI.UICornerRadiusSides.RightTop | Sunny.UI.UICornerRadiusSides.LeftBottom)));
             this.panel2.Size = new System.Drawing.Size(499, 540);
             this.panel2.TabIndex = 27;
+            this.panel2.Text = null;
+            this.panel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("黑体", 41.94783F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.Location = new System.Drawing.Point(201, 206);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 68);
+            this.label2.TabIndex = 126;
+            this.label2.Text = "~";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // uiSymbolLabel5
             // 
+            this.uiSymbolLabel5.BackColor = System.Drawing.Color.Transparent;
             this.uiSymbolLabel5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiSymbolLabel5.ForeColor = System.Drawing.Color.Fuchsia;
-            this.uiSymbolLabel5.Location = new System.Drawing.Point(3, 206);
+            this.uiSymbolLabel5.Location = new System.Drawing.Point(11, 206);
             this.uiSymbolLabel5.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolLabel5.Name = "uiSymbolLabel5";
             this.uiSymbolLabel5.Size = new System.Drawing.Size(114, 35);
@@ -223,6 +208,7 @@ namespace WHProject
             // 
             // uiSymbolLabel4
             // 
+            this.uiSymbolLabel4.BackColor = System.Drawing.Color.Transparent;
             this.uiSymbolLabel4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiSymbolLabel4.IsCircle = true;
             this.uiSymbolLabel4.Location = new System.Drawing.Point(213, 480);
@@ -237,6 +223,7 @@ namespace WHProject
             // uiLinkLabel1
             // 
             this.uiLinkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.uiLinkLabel1.BackColor = System.Drawing.Color.Transparent;
             this.uiLinkLabel1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLinkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.uiLinkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
@@ -252,9 +239,10 @@ namespace WHProject
             // 
             // uiLabel3
             // 
+            this.uiLabel3.BackColor = System.Drawing.Color.Transparent;
             this.uiLabel3.Font = new System.Drawing.Font("幼圆", 48.20869F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLabel3.ForeColor = System.Drawing.Color.Olive;
-            this.uiLabel3.Location = new System.Drawing.Point(334, 177);
+            this.uiLabel3.Location = new System.Drawing.Point(345, 173);
             this.uiLabel3.Name = "uiLabel3";
             this.uiLabel3.Size = new System.Drawing.Size(135, 94);
             this.uiLabel3.TabIndex = 123;
@@ -368,9 +356,10 @@ namespace WHProject
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
             this.panel5.Controls.Add(this.uiLedLabel1);
             this.panel5.Controls.Add(this.uiLedLabel4);
-            this.panel5.Location = new System.Drawing.Point(43, 32);
+            this.panel5.Location = new System.Drawing.Point(58, 32);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(206, 119);
             this.panel5.TabIndex = 116;
@@ -410,7 +399,7 @@ namespace WHProject
             this.uiRuler3.BackColor = System.Drawing.Color.Transparent;
             this.uiRuler3.Direction = Sunny.UI.UITrackBar.BarDirection.Vertical;
             this.uiRuler3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiRuler3.Location = new System.Drawing.Point(303, 25);
+            this.uiRuler3.Location = new System.Drawing.Point(336, 25);
             this.uiRuler3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiRuler3.MinorCount = 4;
             this.uiRuler3.Name = "uiRuler3";
@@ -421,7 +410,7 @@ namespace WHProject
             // uiThermometer1
             // 
             this.uiThermometer1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiThermometer1.Location = new System.Drawing.Point(347, 32);
+            this.uiThermometer1.Location = new System.Drawing.Point(366, 32);
             this.uiThermometer1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiThermometer1.Name = "uiThermometer1";
             this.uiThermometer1.Size = new System.Drawing.Size(49, 129);
@@ -432,6 +421,7 @@ namespace WHProject
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("黑体", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label12.ForeColor = System.Drawing.Color.Blue;
             this.label12.Location = new System.Drawing.Point(7, 441);
@@ -444,6 +434,7 @@ namespace WHProject
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("黑体", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label8.ForeColor = System.Drawing.Color.Blue;
             this.label8.Location = new System.Drawing.Point(7, 359);
@@ -456,6 +447,7 @@ namespace WHProject
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("黑体", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.Color.Blue;
             this.label6.Location = new System.Drawing.Point(7, 297);
@@ -465,24 +457,13 @@ namespace WHProject
             this.label6.Text = "低温调控";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("黑体", 41.94783F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(196, 213);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 68);
-            this.label7.TabIndex = 31;
-            this.label7.Text = "~";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // setTemLabelmax
             // 
             this.setTemLabelmax.AutoSize = true;
+            this.setTemLabelmax.BackColor = System.Drawing.Color.Transparent;
             this.setTemLabelmax.Font = new System.Drawing.Font("黑体", 41.94783F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.setTemLabelmax.ForeColor = System.Drawing.Color.Blue;
-            this.setTemLabelmax.Location = new System.Drawing.Point(253, 187);
+            this.setTemLabelmax.Location = new System.Drawing.Point(261, 188);
             this.setTemLabelmax.Name = "setTemLabelmax";
             this.setTemLabelmax.Size = new System.Drawing.Size(97, 68);
             this.setTemLabelmax.TabIndex = 30;
@@ -551,7 +532,8 @@ namespace WHProject
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.uiLine3);
             this.panel1.Controls.Add(this.uiSymbolLabel1);
             this.panel1.Controls.Add(this.numericUpDown3);
             this.panel1.Controls.Add(this.uiSymbolButton2);
@@ -560,16 +542,38 @@ namespace WHProject
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label13);
+            this.panel1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panel1.Location = new System.Drawing.Point(30, 216);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.panel1.Name = "panel1";
+            this.panel1.Radius = 70;
+            this.panel1.RadiusSides = ((Sunny.UI.UICornerRadiusSides)((Sunny.UI.UICornerRadiusSides.LeftTop | Sunny.UI.UICornerRadiusSides.RightTop)));
             this.panel1.Size = new System.Drawing.Size(421, 314);
             this.panel1.TabIndex = 39;
+            this.panel1.Text = null;
+            this.panel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiLine3
+            // 
+            this.uiLine3.BackColor = System.Drawing.Color.Transparent;
+            this.uiLine3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.uiLine3.ForeColor = System.Drawing.Color.Blue;
+            this.uiLine3.LineColorGradient = true;
+            this.uiLine3.LineDashStyle = Sunny.UI.UILineDashStyle.Dash;
+            this.uiLine3.LineSize = 5;
+            this.uiLine3.Location = new System.Drawing.Point(-2, 126);
+            this.uiLine3.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiLine3.Name = "uiLine3";
+            this.uiLine3.Size = new System.Drawing.Size(423, 58);
+            this.uiLine3.TabIndex = 126;
+            this.uiLine3.Text = "当前湿度";
+            this.uiLine3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // uiSymbolLabel1
             // 
             this.uiSymbolLabel1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolLabel1.Location = new System.Drawing.Point(282, 138);
+            this.uiSymbolLabel1.Location = new System.Drawing.Point(280, 179);
             this.uiSymbolLabel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolLabel1.Name = "uiSymbolLabel1";
             this.uiSymbolLabel1.Size = new System.Drawing.Size(77, 63);
@@ -581,7 +585,7 @@ namespace WHProject
             // numericUpDown3
             // 
             this.numericUpDown3.Font = new System.Drawing.Font("宋体", 18F);
-            this.numericUpDown3.Location = new System.Drawing.Point(118, 229);
+            this.numericUpDown3.Location = new System.Drawing.Point(119, 257);
             this.numericUpDown3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.numericUpDown3.Maximum = 100;
             this.numericUpDown3.Minimum = 0;
@@ -598,7 +602,7 @@ namespace WHProject
             // 
             this.uiSymbolButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiSymbolButton2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolButton2.Location = new System.Drawing.Point(280, 227);
+            this.uiSymbolButton2.Location = new System.Drawing.Point(280, 254);
             this.uiSymbolButton2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolButton2.Name = "uiSymbolButton2";
             this.uiSymbolButton2.Radius = 25;
@@ -616,7 +620,7 @@ namespace WHProject
             this.uiLedLabel5.Font = new System.Drawing.Font("宋体", 12F);
             this.uiLedLabel5.ForeColor = System.Drawing.Color.Lime;
             this.uiLedLabel5.IntervalOn = 5;
-            this.uiLedLabel5.Location = new System.Drawing.Point(284, 18);
+            this.uiLedLabel5.Location = new System.Drawing.Point(217, 15);
             this.uiLedLabel5.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiLedLabel5.Name = "uiLedLabel5";
             this.uiLedLabel5.Size = new System.Drawing.Size(85, 102);
@@ -631,7 +635,7 @@ namespace WHProject
             this.uiLedLabel3.Font = new System.Drawing.Font("宋体", 36F);
             this.uiLedLabel3.ForeColor = System.Drawing.Color.Lime;
             this.uiLedLabel3.IntervalOn = 5;
-            this.uiLedLabel3.Location = new System.Drawing.Point(178, 18);
+            this.uiLedLabel3.Location = new System.Drawing.Point(118, 15);
             this.uiLedLabel3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiLedLabel3.Name = "uiLedLabel3";
             this.uiLedLabel3.Size = new System.Drawing.Size(114, 102);
@@ -645,7 +649,7 @@ namespace WHProject
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("黑体", 41.94783F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label16.ForeColor = System.Drawing.Color.Blue;
-            this.label16.Location = new System.Drawing.Point(180, 136);
+            this.label16.Location = new System.Drawing.Point(149, 179);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(97, 68);
             this.label16.TabIndex = 39;
@@ -656,7 +660,7 @@ namespace WHProject
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("宋体", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(34, 154);
+            this.label15.Location = new System.Drawing.Point(18, 208);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(98, 22);
             this.label15.TabIndex = 39;
@@ -667,38 +671,36 @@ namespace WHProject
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("黑体", 13.77391F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label14.ForeColor = System.Drawing.Color.Blue;
-            this.label14.Location = new System.Drawing.Point(7, 236);
+            this.label14.Location = new System.Drawing.Point(7, 265);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(98, 22);
             this.label14.TabIndex = 39;
             this.label14.Text = "预设湿度";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("宋体", 13.77391F);
-            this.label13.Location = new System.Drawing.Point(34, 61);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(98, 22);
-            this.label13.TabIndex = 39;
-            this.label13.Text = "当前湿度";
-            // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.uiSymbolLabel3);
             this.panel3.Controls.Add(this.uiSymbolLabel2);
             this.panel3.Controls.Add(this.uiTurnSwitch1);
             this.panel3.Controls.Add(this.uiLine2);
+            this.panel3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panel3.Location = new System.Drawing.Point(28, 536);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel3.MinimumSize = new System.Drawing.Size(1, 1);
             this.panel3.Name = "panel3";
+            this.panel3.Radius = 70;
+            this.panel3.RadiusSides = ((Sunny.UI.UICornerRadiusSides)((Sunny.UI.UICornerRadiusSides.RightBottom | Sunny.UI.UICornerRadiusSides.LeftBottom)));
             this.panel3.Size = new System.Drawing.Size(423, 190);
             this.panel3.TabIndex = 39;
+            this.panel3.Text = null;
+            this.panel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // uiSymbolLabel3
             // 
             this.uiSymbolLabel3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolLabel3.Location = new System.Drawing.Point(300, 53);
+            this.uiSymbolLabel3.Location = new System.Drawing.Point(282, 62);
             this.uiSymbolLabel3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolLabel3.Name = "uiSymbolLabel3";
             this.uiSymbolLabel3.Size = new System.Drawing.Size(89, 71);
@@ -711,7 +713,7 @@ namespace WHProject
             // uiSymbolLabel2
             // 
             this.uiSymbolLabel2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiSymbolLabel2.Location = new System.Drawing.Point(45, 53);
+            this.uiSymbolLabel2.Location = new System.Drawing.Point(44, 62);
             this.uiSymbolLabel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiSymbolLabel2.Name = "uiSymbolLabel2";
             this.uiSymbolLabel2.Size = new System.Drawing.Size(89, 71);
@@ -726,7 +728,7 @@ namespace WHProject
             this.uiTurnSwitch1.ActiveColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.uiTurnSwitch1.BackColor = System.Drawing.Color.Transparent;
             this.uiTurnSwitch1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.uiTurnSwitch1.Location = new System.Drawing.Point(134, 3);
+            this.uiTurnSwitch1.Location = new System.Drawing.Point(129, 30);
             this.uiTurnSwitch1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiTurnSwitch1.Name = "uiTurnSwitch1";
             this.uiTurnSwitch1.Size = new System.Drawing.Size(160, 160);
@@ -740,7 +742,7 @@ namespace WHProject
             this.uiLine2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.uiLine2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
             this.uiLine2.LineSize = 10;
-            this.uiLine2.Location = new System.Drawing.Point(0, 159);
+            this.uiLine2.Location = new System.Drawing.Point(0, 2);
             this.uiLine2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiLine2.Name = "uiLine2";
             this.uiLine2.Size = new System.Drawing.Size(423, 29);
@@ -911,7 +913,52 @@ namespace WHProject
             this.uiLedStopwatch1.ShowType = Sunny.UI.UILedStopwatch.TimeShowType.hhmmss;
             this.uiLedStopwatch1.Size = new System.Drawing.Size(190, 34);
             this.uiLedStopwatch1.TabIndex = 81;
-            this.uiLedStopwatch1.Text = "00:02:36";
+            this.uiLedStopwatch1.Text = "00:00:24";
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(30, 127);
+            this.button1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 72);
+            this.button1.Symbol = 61534;
+            this.button1.SymbolSize = 30;
+            this.button1.TabIndex = 82;
+            this.button1.Text = "打开风扇";
+            this.button1.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(177, 127);
+            this.button3.MinimumSize = new System.Drawing.Size(1, 1);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(116, 72);
+            this.button3.Symbol = 61534;
+            this.button3.SymbolSize = 30;
+            this.button3.TabIndex = 83;
+            this.button3.Text = "打开水闸";
+            this.button3.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(335, 127);
+            this.button2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(116, 72);
+            this.button2.Symbol = 61534;
+            this.button2.SymbolSize = 30;
+            this.button2.TabIndex = 84;
+            this.button2.Text = "打开灯光";
+            this.button2.TipsFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -920,6 +967,9 @@ namespace WHProject
             this.BackgroundImage = global::WHProject.Resource1.pic2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1069, 876);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.uiLedStopwatch1);
             this.Controls.Add(this.uiLabel4);
             this.Controls.Add(this.uiSymbolButton5);
@@ -936,11 +986,8 @@ namespace WHProject
             this.Controls.Add(this.portsBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.chart1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
@@ -964,16 +1011,12 @@ namespace WHProject
 
         #endregion
         private System.IO.Ports.SerialPort portMar;//串口管理
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label setTemLabelmin;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Panel panel2;
+        private Sunny.UI.UIPanel panel2;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label setTemLabelmax;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
@@ -983,10 +1026,9 @@ namespace WHProject
         private System.Windows.Forms.Button openStreamBt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox portsBox;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label13;
+        private Sunny.UI.UIPanel panel1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel panel3;
+        private Sunny.UI.UIPanel panel3;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Timer timer5;
@@ -1026,6 +1068,11 @@ namespace WHProject
         private Sunny.UI.UISymbolLabel uiSymbolLabel5;
         private Sunny.UI.UILabel uiLabel4;
         private Sunny.UI.UILedStopwatch uiLedStopwatch1;
+        private Sunny.UI.UISymbolButton button1;
+        private Sunny.UI.UISymbolButton button3;
+        private Sunny.UI.UISymbolButton button2;
+        private Sunny.UI.UILine uiLine3;
+        private System.Windows.Forms.Label label2;
     }
 }
 
